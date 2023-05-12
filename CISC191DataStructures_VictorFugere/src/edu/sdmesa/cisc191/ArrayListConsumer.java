@@ -33,7 +33,7 @@ public class ArrayListConsumer
 	{
 		this.list = list;
 	}
-	//fdf
+	//fdffdf
 	public String consume()
 	{
 		   if (!list.isEmpty())
