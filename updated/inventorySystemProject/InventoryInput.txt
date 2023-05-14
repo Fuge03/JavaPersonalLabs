@@ -1,7 +1,0 @@
-Item name: Chicken wings	Price: 12.0		Quantity: 42	Grade: Choice
-Item name: Pork Filet		Price: 14.0		Quantity: 64	Grade: Choice
-Item name: chicken breast	Price: 12.67	Quantity: 45	Grade: Choice
-Item name: Baby potatoes	Price: 1.75		Quantity: 456	isOrganic: false
-Item name: Purple potatoes	Price: 1.75		Quantity: 456	isOrganic: false
-Item name: Carrots			Price: 1.25		Quantity: 42	isOrganic: true
-Item name: Apples			Price: 1.27		Quantity: 56	isOrganic: false
