@@ -1,0 +1,10 @@
+/**
+ * 
+ */
+/**
+ * @author victo
+ *
+ */
+module inventorySystemProject
+{
+}
