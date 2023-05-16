@@ -25,11 +25,13 @@ package cisc191.sdmesa.edu;
 public class NameNode
 {
 	// TODO: A NameNode has-a left node
+	private NameNode leftNode;
+	
+	//A NameNode has-a right node
+	private NameNode rightNode;
 	
 	// A NameNode has-a name
 	private String name;
-	
-	// TODO: A NameNode has-a right node
 	
 
 	/**
@@ -38,8 +40,7 @@ public class NameNode
 	 */
 	public NameNode(String newName)
 	{
-		// TODO: store newName in node;
-		
+		name = newName;
 	}
 	
 	/**
@@ -48,8 +49,7 @@ public class NameNode
 	 */
 	public String getName()
 	{
-		// TODO:
-		return null;
+		return name;
 	}
 	
 	/**
@@ -58,8 +58,7 @@ public class NameNode
 	 */
 	public void setLeft(NameNode newLeft)
 	{
-		// TODO:
-		
+		leftNode = newLeft;
 	}
 	
 	/**
@@ -68,7 +67,7 @@ public class NameNode
 	 */
 	public void setRight(NameNode newRight)
 	{
-		// TODO:
+		rightNode = newRight;
 		
 	}
 	
@@ -78,8 +77,7 @@ public class NameNode
 	 */
 	public NameNode getLeft()
 	{
-		// TODO:
-		return null;
+		return leftNode;
 	}
 	
 	/**
@@ -88,18 +86,24 @@ public class NameNode
 	 */
 	public NameNode getRight()
 	{
-		// TODO:
-		return null;
+		return rightNode;
 	}
 	
 	/**
 	 * Find the least name in the tree
-	 * @return the first name of the names in the tree in lexicographical order
+	 * @return the first name of the names in the tree in z order
 	 */
 	public String getFirstName()
 	{
-		// TODO:
-		return null;
+		if(leftNode == null)
+		{
+			return this.name;
+		}
+		else
+		{
+			return leftNode.getFirstName();
+		}
+			
 	}
 	
 	/**
@@ -108,8 +112,14 @@ public class NameNode
 	 */
 	public String getLastName()
 	{
-		// TODO:
-		return null;
+		if(rightNode == null)
+		{
+			return this.name;
+		}
+		else
+		{
+			return rightNode.getLastName();
+		}
 	}
 
 	/**
@@ -144,6 +154,18 @@ public class NameNode
 		// TODO: in-order traverse tree recursively:
 		// traverse and add left subtree, then add this, then traverse and add right subtree
 		// Warning: Minds have been blown during the implementation of this method...
+		
+		if (leftNode != null)
+		{
+			returnValue += leftNode.toString();
+		}
+		
+		returnValue += this.getName();
+		
+		if (rightNode != null)
+		{
+			returnValue += rightNode.toString();	
+		}
 
 		return returnValue;
 	}

@@ -32,15 +32,13 @@ public class Recursion
 	 */
 	public static int addLess(final int n)
 	{
-		
-		if (n == 0)
+		if(n == 0 || n==1)
 		{
-			// Base case
-			return 0;
+			return n;
 		}
 		else
-		{	
-			return n + addLess(n - 1);
+		{
+			return n + addLess(n-1);
 		}
 	}
 	
@@ -51,13 +49,13 @@ public class Recursion
 	 */
 	public static int multiplyLess(final int n)
 	{
-		if (n == 1)
+		if(n == 1)
 		{
-			return 1; 
+			return n;
 		}
 		else
 		{
-			return n * multiplyLess(n - 1);
+			return n * multiplyLess(n-1);
 		}
 	}
 	
@@ -73,17 +71,15 @@ public class Recursion
 	 */
 	public static int lucas(final int n)
 	{
-		if (n == 0)
+		switch (n)
 		{
-			return 2;
-		}
-		if (n == 1)
-		{
-			return 1;
-		}
-		else
-		{
-			return lucas(n - 2) + lucas(n - 1);
+			
+			case 0: return 2;
+                  
+			case 1: return 1;
+			           
+			default: return lucas(n - 2) + lucas(n - 1); 
+			
 		}
 	}
 	
@@ -96,12 +92,12 @@ public class Recursion
 	 * @param periods
 	 * @return ending balance
 	 */
-	public static double calculateEndBalance(final double startBalance, final double interestRate, final int periods)
+	public static double calculateEndBalance(final double startBalance,
+			final double interestRate, final int periods)
 	{
 		if (periods == 0)
 		{
-			// TODO:
-			return 1;
+			return startBalance;
 		}
 		else
 		{
@@ -109,9 +105,8 @@ public class Recursion
 			// Calculate the end balance for the first n-1 periods
 			// The start balance for the n'th period is the end balance for the first n-1 periods
 			// Then calculate the end balance for the n'th period
-			 = calculateEndBalance(startBalance, interestRate, periods - 1);
 			
-			return calculateEndBalance();
+			return calculateEndBalance(startBalance + (startBalance * interestRate), interestRate, periods - 1);
 		}
 	}
 
@@ -120,14 +115,31 @@ public class Recursion
 	 * 
 	 * @param startPopulation the starting population
 	 * @param maxPopulation the maximum population that the environment will sustain
-	 * @param growthRate staring growth rate, 0 < growth rate < 1
+	 * @param growthRate starting growth rate, 0 < growth rate < 1
 	 * @param periods
 	 * @return the ending population
 	 */
-//	public static int calculateEndPopulation(final int startPopulation,
-//			final int maxPopulation, final double growthRate, final int periods)
-//	{
-//		return 0;
-//	}
+	public static int calculateEndPopulation(final int startPopulation,
+			final int maxPopulation, final double growthRate, final int periods)
+	{
+		if(periods == 0)
+		{
+			return startPopulation;
+		}
+		else
+		{
+			int newPopulation = (int) (startPopulation + (growthRate * (1 - (double)startPopulation / maxPopulation)) * startPopulation);
+			
+			return calculateEndPopulation(newPopulation, maxPopulation, growthRate, periods - 1);
+			
+			//calculateEndPopulation(, maxPopulation, )
+		}
+		/*if (calculateEndPopulation(startPopulation, maxPopulation, growthRate, periods) > maxPopulation || periods == 0)
+		{
+			return;
+		}
+		
+		return calculateEndPopulaton(startPopulation, maxPopulation, growthRate, periods - 1);*/
+	}
 
 }

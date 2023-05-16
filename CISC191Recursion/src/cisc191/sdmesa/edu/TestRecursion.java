@@ -78,204 +78,204 @@ class TestRecursion
 		assertEquals(100.90, Recursion.calculateEndBalance(100.00, 0.0003, 30), 0.01);
 	}
 
-//	@Test
-//	void testCalculatePopulation()
-//	{
-//		// Inspired by:
-//		// Mathispower4u. (2013, September 23). Logistic Growth: Using Recursive
-//		// Equations. YouTube. https://www.youtube.com/watch?v=E2REyozXL3Y
-//
-//		// Note: Populations are whole numbers
-//		// We are using the format:
-//		// calculateEndPopulation(startPopulation, sustainablePpopulation, growthFactor,
-//		// numberOfPeriods)
-//		assertEquals(2000, Recursion.calculateEndPopulation(2000, 10000, 0.05, 0));
-//		assertEquals(2080, Recursion.calculateEndPopulation(2000, 10000, 0.05, 1));
-//		assertEquals(2162, Recursion.calculateEndPopulation(2000, 10000, 0.05, 2));
-//		assertEquals(2246, Recursion.calculateEndPopulation(2000, 10000, 0.05, 3));
-//
-//		assertEquals(2901, Recursion.calculateEndPopulation(2000, 10000, 0.05, 10));
-//		assertEquals(4011, Recursion.calculateEndPopulation(2000, 10000, 0.05, 20));
-//		assertEquals(6448, Recursion.calculateEndPopulation(2000, 10000, 0.05, 40));
-//		assertEquals(8325, Recursion.calculateEndPopulation(2000, 10000, 0.05, 60));
-//		// Population slowly approaching 10000
-//		assertEquals(9318, Recursion.calculateEndPopulation(2000, 10000, 0.05, 80));
-//		assertEquals(9738, Recursion.calculateEndPopulation(2000, 10000, 0.05, 100));
-//		assertEquals(9898, Recursion.calculateEndPopulation(2000, 10000, 0.05, 120));
-//		// But never quite getting to 10000
-//		assertEquals(9980, Recursion.calculateEndPopulation(2000, 10000, 0.05, 1000));
-//		assertEquals(9980, Recursion.calculateEndPopulation(2000, 10000, 0.05, 5000));
-//	}
-	
-//	@Test
-//	public void testNameNode()
-//	{
-//		NameNode rootNode = new NameNode("M");
-//		assertEquals("M", rootNode.getName());
-//		assertEquals(null, rootNode.getLeft());
-//		assertEquals(null, rootNode.getRight());
-//		
-//		NameNode h = new NameNode("H");
-//		rootNode.setLeft(h);
-//		//    M
-//		//   /
-//		//  H
-//		// H is inserted to the left of M because it comes before M in alphabetical order
-//		assertEquals("H", rootNode.getLeft().getName());
-//		assertEquals(null, rootNode.getRight());
-//		
-//		NameNode s = new NameNode("S");
-//		rootNode.setRight(s);
-//		//    M
-//		//   / \
-//		//  H   S
-//		// S is inserted to the right of M because it comes after M in alphabetical order
-//		assertEquals("H", rootNode.getLeft().getName());
-//		assertEquals("S", rootNode.getRight().getName());
-//		
-//		NameNode a = new NameNode("A");
-//		h.setLeft(a);
-//		//     M
-//		//    / \
-//		//   H   S
-//		//  /
-//		// A
-//		assertEquals("H", rootNode.getLeft().getName());
-//		assertEquals("S", rootNode.getRight().getName());
-//		assertEquals("A", rootNode.getLeft().getLeft().getName());
-//		assertEquals(null, rootNode.getLeft().getRight());
-//		
-//		NameNode z = new NameNode("Z");
-//		s.setRight(z);
-//		//     M
-//		//    / \
-//		//   H   S
-//		//  /     \
-//		// A       Z		
-//	    assertEquals("H", rootNode.getLeft().getName());
-//		assertEquals("S", rootNode.getRight().getName());
-//		assertEquals("A", rootNode.getLeft().getLeft().getName());
-//		assertEquals("Z", rootNode.getRight().getRight().getName());
-//		
-//		NameNode r = new NameNode("R");
-//		s.setLeft(r);
-//		//     M
-//		//    / \
-//		//   H   S
-//		//  /   / \
-//		// A   R   Z
-//		assertEquals("H", rootNode.getLeft().getName());
-//		assertEquals("S", rootNode.getRight().getName());
-//		assertEquals("A", rootNode.getLeft().getLeft().getName());
-//		assertEquals("R", rootNode.getRight().getLeft().getName());
-//		assertEquals("Z", rootNode.getRight().getRight().getName());
-//	}
-	
-//	@Test void testFirstName()
-//	{
-//		// Hint: where in the tree is the lowest letter in alphabetical order found?
-//		NameNode rootNode = new NameNode("M");
-//		assertEquals("M", rootNode.getFirstName());
-//		NameNode h = new NameNode("H");
-//		rootNode.setLeft(h);
-//		assertEquals("H", rootNode.getFirstName());
-//		NameNode s = new NameNode("S");
-//		rootNode.setRight(s);
-//		assertEquals("H", rootNode.getFirstName());
-//		NameNode a = new NameNode("A");
-//		h.setLeft(a);
-//		assertEquals("A", rootNode.getFirstName());
-//		NameNode z = new NameNode("Z");
-//		s.setRight(z);
-//		assertEquals("A", rootNode.getFirstName());
-//		NameNode r = new NameNode("R");
-//		s.setLeft(r);
-//		assertEquals("A", rootNode.getFirstName());
-//	}
+	@Test
+	void testCalculatePopulation()
+	{
+		// Inspired by:
+		// Mathispower4u. (2013, September 23). Logistic Growth: Using Recursive
+		// Equations. YouTube. https://www.youtube.com/watch?v=E2REyozXL3Y
 
-//	@Test void testGetLastName()
-//	{
-//		// Hint: where in the tree is the highest letter in alphabetical order found?
-//		NameNode rootNode = new NameNode("M");
-//		assertEquals("M", rootNode.getLastName());
-//		NameNode h = new NameNode("H");
-//		rootNode.setLeft(h);
-//		assertEquals("M", rootNode.getLastName());
-//		NameNode s = new NameNode("S");
-//		rootNode.setRight(s);
-//		assertEquals("S", rootNode.getLastName());
-//		NameNode a = new NameNode("A");
-//		h.setLeft(a);
-//		assertEquals("S", rootNode.getLastName());
-//		NameNode z = new NameNode("Z");
-//		s.setRight(z);
-//		assertEquals("Z", rootNode.getLastName());
-//		NameNode r = new NameNode("R");
-//		s.setLeft(r);
-//		assertEquals("Z", rootNode.getLastName());
-//	}
+		// Note: Populations are whole numbers
+		// We are using the format:
+		// calculateEndPopulation(startPopulation, sustainablePpopulation, growthFactor,
+		// numberOfPeriods)
+		assertEquals(2000, Recursion.calculateEndPopulation(2000, 10000, 0.05, 0));
+		assertEquals(2080, Recursion.calculateEndPopulation(2000, 10000, 0.05, 1));
+		assertEquals(2162, Recursion.calculateEndPopulation(2000, 10000, 0.05, 2));
+		assertEquals(2246, Recursion.calculateEndPopulation(2000, 10000, 0.05, 3));
+
+		assertEquals(2901, Recursion.calculateEndPopulation(2000, 10000, 0.05, 10));
+		assertEquals(4011, Recursion.calculateEndPopulation(2000, 10000, 0.05, 20));
+		assertEquals(6448, Recursion.calculateEndPopulation(2000, 10000, 0.05, 40));
+		assertEquals(8325, Recursion.calculateEndPopulation(2000, 10000, 0.05, 60));
+		// Population slowly approaching 10000
+		assertEquals(9318, Recursion.calculateEndPopulation(2000, 10000, 0.05, 80));
+		assertEquals(9738, Recursion.calculateEndPopulation(2000, 10000, 0.05, 100));
+		assertEquals(9898, Recursion.calculateEndPopulation(2000, 10000, 0.05, 120));
+		// But never quite getting to 10000
+		assertEquals(9980, Recursion.calculateEndPopulation(2000, 10000, 0.05, 1000));
+		assertEquals(9980, Recursion.calculateEndPopulation(2000, 10000, 0.05, 5000));
+	}
 	
-//	@Test void testToString()
-//	{
-//		// Hint: Recursively call toString on the NameNodes
-//		NameNode rootNode = new NameNode("M");
-//		assertEquals("M", rootNode.toString());
-//		assertNull(rootNode.getLeft());
-//		assertNull(rootNode.getRight());
-//		// Hint: 
-//		assertEquals("M", rootNode.getName());
-//		
-//		NameNode h = new NameNode("H");
-//		rootNode.setLeft(h);
-//		assertEquals("HM", rootNode.toString());
-//		assertEquals("H", rootNode.getLeft().toString());
-//		assertNull(rootNode.getRight());
-//		// Hint:
-//		assertEquals("HM", rootNode.getLeft().toString() + rootNode.getName());
-//		
-//		NameNode s = new NameNode("S");
-//		rootNode.setRight(s);
-//		assertEquals("HMS", rootNode.toString());
-//		assertEquals("H", rootNode.getLeft().toString());
-//		assertEquals("S", rootNode.getRight().toString());
-//		// Hint:
-//		assertEquals("HMS", rootNode.getLeft().toString() + rootNode.getName() + rootNode.getRight().toString());
-//		
-//		NameNode a = new NameNode("A");
-//		h.setLeft(a);
-//		assertEquals("AHMS", rootNode.toString());
-//		// Hint:
-//		assertEquals("AHMS", rootNode.getLeft().toString() + rootNode.getName() + rootNode.getRight().toString());
-//		
-//		NameNode z = new NameNode("Z");
-//		s.setRight(z);
-//		assertEquals("AHMSZ", rootNode.toString());
-//		// Hint:
-//		assertEquals("AHMSZ", rootNode.getLeft().toString() + rootNode.getName() + rootNode.getRight().toString());
-//		
-//		NameNode r = new NameNode("R");
-//		s.setLeft(r);
-//		assertEquals("AHMRSZ", rootNode.toString());
-//		assertEquals("AH", rootNode.getLeft().toString());
-//		assertEquals("RSZ", rootNode.getRight().toString());
-//		// Hint:
-//		assertEquals("AHMRSZ", rootNode.getLeft().toString() + rootNode.getName() + rootNode.getRight().toString());
-//	}
+	@Test
+	public void testNameNode()
+	{
+		NameNode rootNode = new NameNode("M");
+		assertEquals("M", rootNode.getName());
+		assertEquals(null, rootNode.getLeft());
+		assertEquals(null, rootNode.getRight());
+		
+		NameNode h = new NameNode("H");
+		rootNode.setLeft(h);
+		//    M
+		//   /
+		//  H
+		// H is inserted to the left of M because it comes before M in alphabetical order
+		assertEquals("H", rootNode.getLeft().getName());
+		assertEquals(null, rootNode.getRight());
+		
+		NameNode s = new NameNode("S");
+		rootNode.setRight(s);
+		//    M
+		//   / \
+		//  H   S
+		// S is inserted to the right of M because it comes after M in alphabetical order
+		assertEquals("H", rootNode.getLeft().getName());
+		assertEquals("S", rootNode.getRight().getName());
+		
+		NameNode a = new NameNode("A");
+		h.setLeft(a);
+		//     M
+		//    / \
+		//   H   S
+		//  /
+		// A
+		assertEquals("H", rootNode.getLeft().getName());
+		assertEquals("S", rootNode.getRight().getName());
+		assertEquals("A", rootNode.getLeft().getLeft().getName());
+		assertEquals(null, rootNode.getLeft().getRight());
+		
+		NameNode z = new NameNode("Z");
+		s.setRight(z);
+		//     M
+		//    / \
+		//   H   S
+		//  /     \
+		// A       Z		
+	    assertEquals("H", rootNode.getLeft().getName());
+		assertEquals("S", rootNode.getRight().getName());
+		assertEquals("A", rootNode.getLeft().getLeft().getName());
+		assertEquals("Z", rootNode.getRight().getRight().getName());
+		
+		NameNode r = new NameNode("R");
+		s.setLeft(r);
+		//     M
+		//    / \
+		//   H   S
+		//  /   / \
+		// A   R   Z
+		assertEquals("H", rootNode.getLeft().getName());
+		assertEquals("S", rootNode.getRight().getName());
+		assertEquals("A", rootNode.getLeft().getLeft().getName());
+		assertEquals("R", rootNode.getRight().getLeft().getName());
+		assertEquals("Z", rootNode.getRight().getRight().getName());
+	}
 	
-//	@Test
-//	public void testInsert()
-//	{
-//		NameNode tree = new NameNode("Noel");
-//		assertEquals("Noel", tree.toString());
-//		tree.insert("Abe");
-//		assertEquals("AbeNoel", tree.toString());
-//		tree.insert("Alice");
-//		assertEquals("AbeAliceNoel", tree.toString());
-//		tree.insert("Zoe");
-//		assertEquals("AbeAliceNoelZoe", tree.toString());
-//		tree.insert("Aaron");
-//		assertEquals("AaronAbeAliceNoelZoe", tree.toString());
-//	}
+	@Test void testFirstName()
+	{
+		// Hint: where in the tree is the lowest letter in alphabetical order found?
+		NameNode rootNode = new NameNode("M");
+		assertEquals("M", rootNode.getFirstName());
+		NameNode h = new NameNode("H");
+		rootNode.setLeft(h);
+		assertEquals("H", rootNode.getFirstName());
+		NameNode s = new NameNode("S");
+		rootNode.setRight(s);
+		assertEquals("H", rootNode.getFirstName());
+		NameNode a = new NameNode("A");
+		h.setLeft(a);
+		assertEquals("A", rootNode.getFirstName());
+		NameNode z = new NameNode("Z");
+		s.setRight(z);
+		assertEquals("A", rootNode.getFirstName());
+		NameNode r = new NameNode("R");
+		s.setLeft(r);
+		assertEquals("A", rootNode.getFirstName());
+	}
+
+	@Test void testGetLastName()
+	{
+		// Hint: where in the tree is the highest letter in alphabetical order found?
+		NameNode rootNode = new NameNode("M");
+		assertEquals("M", rootNode.getLastName());
+		NameNode h = new NameNode("H");
+		rootNode.setLeft(h);
+		assertEquals("M", rootNode.getLastName());
+		NameNode s = new NameNode("S");
+		rootNode.setRight(s);
+		assertEquals("S", rootNode.getLastName());
+		NameNode a = new NameNode("A");
+		h.setLeft(a);
+		assertEquals("S", rootNode.getLastName());
+		NameNode z = new NameNode("Z");
+		s.setRight(z);
+		assertEquals("Z", rootNode.getLastName());
+		NameNode r = new NameNode("R");
+		s.setLeft(r);
+		assertEquals("Z", rootNode.getLastName());
+	}
+	
+	@Test void testToString()
+	{
+		// Hint: Recursively call toString on the NameNodes
+		NameNode rootNode = new NameNode("M");
+		assertEquals("M", rootNode.toString());
+		assertNull(rootNode.getLeft());
+		assertNull(rootNode.getRight());
+		// Hint: 
+		assertEquals("M", rootNode.getName());
+		
+		NameNode h = new NameNode("H");
+		rootNode.setLeft(h);
+		assertEquals("HM", rootNode.toString());
+		assertEquals("H", rootNode.getLeft().toString());
+		assertNull(rootNode.getRight());
+		// Hint:
+		assertEquals("HM", rootNode.getLeft().toString() + rootNode.getName());
+		
+		NameNode s = new NameNode("S");
+		rootNode.setRight(s);
+		assertEquals("HMS", rootNode.toString());
+		assertEquals("H", rootNode.getLeft().toString());
+		assertEquals("S", rootNode.getRight().toString());
+		// Hint:
+		assertEquals("HMS", rootNode.getLeft().toString() + rootNode.getName() + rootNode.getRight().toString());
+		
+		NameNode a = new NameNode("A");
+		h.setLeft(a);
+		assertEquals("AHMS", rootNode.toString());
+		// Hint:
+		assertEquals("AHMS", rootNode.getLeft().toString() + rootNode.getName() + rootNode.getRight().toString());
+		
+		NameNode z = new NameNode("Z");
+		s.setRight(z);
+		assertEquals("AHMSZ", rootNode.toString());
+		// Hint:
+		assertEquals("AHMSZ", rootNode.getLeft().toString() + rootNode.getName() + rootNode.getRight().toString());
+		
+		NameNode r = new NameNode("R");
+		s.setLeft(r);
+		assertEquals("AHMRSZ", rootNode.toString());
+		assertEquals("AH", rootNode.getLeft().toString());
+		assertEquals("RSZ", rootNode.getRight().toString());
+		// Hint:
+		assertEquals("AHMRSZ", rootNode.getLeft().toString() + rootNode.getName() + rootNode.getRight().toString());
+	}
+	
+	@Test
+	public void testInsert()
+	{
+		NameNode tree = new NameNode("Noel");
+		assertEquals("Noel", tree.toString());
+		tree.insert("Abe");
+		assertEquals("AbeNoel", tree.toString());
+		tree.insert("Alice");
+		assertEquals("AbeAliceNoel", tree.toString());
+		tree.insert("Zoe");
+		assertEquals("AbeAliceNoelZoe", tree.toString());
+		tree.insert("Aaron");
+		assertEquals("AaronAbeAliceNoelZoe", tree.toString());
+	}
 
 
 }
